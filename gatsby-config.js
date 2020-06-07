@@ -1,34 +1,71 @@
+const path = require(`path`); // eslint-disable-line
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `craiglewis.me`,
+    description: `Personal website of Craig Lewis, computer science student at the University of Waterloo`,
+    author: `@craigericlewis`,
+    siteUrl: `https://craiglewis.me`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    { resolve: `gatsby-plugin-react-helmet` },
+    // { resolve: `gatsby-plugin-typescript` },
+    { resolve: `gatsby-plugin-styled-components` },
+    { resolve: `gatsby-transformer-sharp` },
+    { resolve: `gatsby-plugin-sharp` },
+    { resolve: `gatsby-plugin-transition-link` },
+    { resolve: `gatsby-plugin-remove-trailing-slashes` },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: path.join(__dirname, `src`, `assets`, `images`),
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-plugin-alias-imports`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        alias: {
+          '~assets': 'src/assets',
+          '~components': 'src/components',
+          // "~layouts": "src/layouts",
+          '~pages': 'src/pages',
+          // "~sections": "src/sections",
+          '~theme': 'src/theme',
+          '~types': 'src/types',
+          // "~utils": "src/utils",
+          '~src': 'src',
+        },
+        extensions: ['ts', 'tsx', 'json'],
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-168732314-1',
+        head: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Overpass`,
+            variants: [`400`, `600`, `700`],
+          },
+          { family: `Roboto` },
+        ],
+      },
+    },
+    { resolve: `gatsby-plugin-sitemap` },
   ],
-}
+};
