@@ -1,5 +1,5 @@
 name: Yarn CI
-on: [push, pull_request] # Run on Push and Pull Requests
+on: [push] # Run on Push and Pull Requests
 
 jobs:
   ci:
