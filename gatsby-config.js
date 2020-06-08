@@ -9,7 +9,7 @@ module.exports = {
   },
   plugins: [
     { resolve: `gatsby-plugin-react-helmet` },
-    // { resolve: `gatsby-plugin-typescript` },
+    { resolve: `gatsby-plugin-typescript` },
     { resolve: `gatsby-plugin-styled-components` },
     { resolve: `gatsby-transformer-sharp` },
     { resolve: `gatsby-plugin-sharp` },
@@ -41,11 +41,11 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: /\.inline\.svg$/,
-        },
-      },
+      // options: {
+      //   rule: {
+      //     include: /\.inline\.svg$/,
+      //   },
+      // },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,

@@ -4,7 +4,8 @@ export const themeConstants = {
   color: {
     black: '#252525',
     white: '#fff',
-    beige: '#E5E5E5',
+    beige: '#fefbf5',
+    turquoise: '#224A54'
   },
   fontSize: {
     [Size.XSMALL]: 16,
@@ -21,6 +22,7 @@ export const themeConstants = {
     [Size.XLARGE]: 1.3,
   },
   fontFamily: {
-      heading: 'HelveticaNeue',
-  }
+    heading: "Overpass, sans-serif",
+    body: "Roboto, sans-serif",
+  },
 };
