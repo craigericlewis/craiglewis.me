@@ -1,6 +1,6 @@
 name: Yarn CI
-
 on: [push, pull_request] # Run on Push and Pull Requests
+
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -10,7 +10,7 @@ jobs:
         with:
           fetch-depth: 1
       - name: Install yarn
-      - run: npm install -g yarn
+        run: npm install -g yarn
       - name: Install dependencies
         run: yarn install
       - name: Lint code
