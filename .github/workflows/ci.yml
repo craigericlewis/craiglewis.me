@@ -1,0 +1,21 @@
+name: Yarn CI
+
+on: [push, pull_request] # Run on Push and Pull Requests
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 1
+      - name: Install yarn
+      - run: npm install -g yarn
+      - name: Install dependencies
+        run: yarn install
+      - name: Lint code
+        run: yarn run lint
+      - name: Check types
+        run: yarn run type-check
+      - name: Build with Gatsby
+        run: yarn run build
