@@ -19,9 +19,8 @@ const IconDivision = styled.div`
 const TextDivision = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   background-color: ${theme.color.turquoise};
-  min-width: 580px;
+  width: 580px;
 `;
 
 const TitleContainer = styled.div`
