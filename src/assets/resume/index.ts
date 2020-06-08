@@ -1,1 +1,1 @@
-export { default as Resume } from './Resume.pdf'
+export { default as Resume } from './Resume.pdf';

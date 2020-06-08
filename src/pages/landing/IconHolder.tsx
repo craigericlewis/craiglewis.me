@@ -7,22 +7,17 @@ const IconContainer = styled.div`
 `;
 
 interface State {
-    isHovered: boolean;
+  isHovered: boolean;
 }
 
 interface Props {
-    fill: string;
-    sideLength: number;
-    name: string;
-    onClick: () => void;
+  fill: string;
+  sideLength: number;
+  name: string;
+  onClick: () => void;
 }
 
-const IconHolder: React.FC<Props> = ({
-    fill,
-    sideLength,
-    name,
-    onClick,
-}) => {
+const IconHolder: React.FC<Props> = ({ fill, sideLength, name, onClick }) => {
   const [isHovered, setIsHovered] = React.useState<State['isHovered']>(false);
   const Icon = iconDict[name](fill, sideLength, isHovered);
 
