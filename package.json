@@ -64,7 +64,7 @@
     "develop": "gatsby develop",
     "lint": "eslint --fix src --ext ts,tsx,js,jsx",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "type-check": "tsc --noEmit",
+    "type-check": "tsc",
     "build": "gatsby build",
     "serve": "gatsby serve"
   },
