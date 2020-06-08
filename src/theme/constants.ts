@@ -5,7 +5,8 @@ export const themeConstants = {
     black: '#252525',
     white: '#fff',
     beige: '#fefbf5',
-    turquoise: '#224A54'
+    turquoise: '#224A54',
+    lightBlue: '#98bec8',
   },
   fontSize: {
     [Size.XSMALL]: 16,
@@ -22,7 +23,7 @@ export const themeConstants = {
     [Size.XLARGE]: 1.3,
   },
   fontFamily: {
-    heading: "Overpass, sans-serif",
-    body: "Roboto, sans-serif",
+    heading: 'Overpass, sans-serif',
+    body: 'Roboto, sans-serif',
   },
 };

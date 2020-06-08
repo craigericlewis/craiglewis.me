@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { BaseElementProps } from '../../types/BaseElementProps';
 import Helmet from '../Helmet';
-import theme from '../../theme'
+import theme from '../../theme';
 
 interface PageWrapperProps extends BaseElementProps {
   title?: string;
