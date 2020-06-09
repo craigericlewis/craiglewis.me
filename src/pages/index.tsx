@@ -4,7 +4,7 @@ import PageWrapper from '../components/PageWrapper';
 import LandingSection from './landing';
 
 const IndexPage: React.FC = () => (
-  <PageWrapper>
+  <PageWrapper title={'Craig Lewis'}>
     <LandingSection />
   </PageWrapper>
 );
