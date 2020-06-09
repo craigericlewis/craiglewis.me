@@ -3,3 +3,7 @@ export { default as GithubSvg } from './socials/github.inline.svg';
 export { default as LinkedinSvg } from './socials/linkedin.inline.svg';
 export { default as ResumeSvg } from './socials/resume.inline.svg';
 export { default as LandingSVG } from './landing/landing.inline.svg';
+export { default as FaviconSVG } from './favicon/favicon.svg'
+export { default as Favicon32PNG } from './favicon/favicon-32x32.png'
+export { default as Favicon16PNG } from './favicon/favicon-16x16.png'
+export { default as FaviconICO } from './favicon/favicon.ico'
