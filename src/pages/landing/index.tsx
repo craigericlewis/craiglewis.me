@@ -30,24 +30,28 @@ const TitleContainer = styled.div`
   margin-bottom: auto;
 `;
 
-const Landing: React.FC = () => (
-  <Container>
-    <IconDivision>
-      <LandingSVG height={720} width={720} />
-    </IconDivision>
-    <TextDivision>
-      <TitleContainer>
-        <Text size={30} color={theme.color.beige}>{`Hey! I'm`}</Text>
-        <Text size={90} color={theme.color.beige}>
-          {'Craig Lewis'}
-        </Text>
-        <Text size={34} color={theme.color.beige}>
-          {'Yet another software engineer'}
-        </Text>
-      </TitleContainer>
-      <IconContainer />
-    </TextDivision>
-  </Container>
-);
+const Landing: React.FC = () => {
+  const svgSize = 720;
+
+  return (
+    <Container>
+      <IconDivision>
+        <LandingSVG height={svgSize} width={svgSize} />
+      </IconDivision>
+      <TextDivision>
+        <TitleContainer>
+          <Text size={'30px'} color={theme.color.beige}>{`Hey! I'm`}</Text>
+          <Text size={'90px'} color={theme.color.beige} as={'h1'}>
+            {'Craig Lewis'}
+          </Text>
+          <Text size={'34px'} color={theme.color.beige}>
+            {'Yet another software engineer'}
+          </Text>
+        </TitleContainer>
+        <IconContainer />
+      </TextDivision>
+    </Container>
+  );
+};
 
 export default Landing;

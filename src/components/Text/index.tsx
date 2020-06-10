@@ -8,7 +8,7 @@ export interface TextProps extends BaseElementProps {
   /**
    * **Props that affect/augment styling of the Text component.**
    */
-  size?: Size | number;
+  size?: Size | string;
   color?: string;
   lineHeight?: Size;
   align?: 'left' | 'right' | 'center' | 'justify';
@@ -58,7 +58,7 @@ const BaseText = styled.span<TextProps>`
   font-family: ${({ theme, heading }) =>
     theme.fontFamily[heading ? 'heading' : 'body']};
   font-size: ${({ theme, size = Size.MEDIUM }) =>
-    theme.fontSize[size] || size}px;
+    theme.fontSize[size] || size};
   color: ${({ theme, color = '' }) => theme.color[color] || color || 'inherit'};
   text-decoration-color: ${({ theme, color = '' }) =>
     theme.color[color] || color || 'inherit'};

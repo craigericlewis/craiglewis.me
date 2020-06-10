@@ -9,7 +9,7 @@ interface PageWrapperProps extends BaseElementProps {
 }
 
 export const PAGE_VERT_PADDING = 0;
-export const PAGE_HORIZ_PADDING = 15;
+export const PAGE_HORIZ_PADDING = 0;
 
 export const PageContainer = styled.div`
   display: flex;
@@ -24,6 +24,8 @@ const InnerContainer = styled.div`
   max-width: 1500px;
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   & > .PageWrapper--Heading {
     margin-bottom: 0.5em;
