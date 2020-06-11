@@ -4,7 +4,17 @@ import IconHolder from './IconHolder';
 import { Resume } from '../../assets/resume';
 import { themeConstants } from '../../theme/constants';
 
-const Container = styled.div<Props>`
+interface Props {
+  margin: string;
+  iconPadding: string;
+  size: number;
+}
+
+interface ContainerProps {
+  margin: string;
+}
+
+const Container = styled.div<ContainerProps>`
   display: flex;
   margin: ${({ margin }) => margin};
 `;
@@ -25,37 +35,39 @@ const openResume = () => {
   window.open(Resume);
 };
 
-interface Props {
-  margin: string;
-}
-
-const IconContainer: React.FC<Props> = ({ margin }) => (
-  <Container margin={margin}>
-    <IconHolder
-      onClick={linkedinClick}
-      fill={themeConstants.color.lightBlue}
-      sideLength={45}
-      name={'linkedin'}
-    />
-    <IconHolder
-      onClick={githubClick}
-      fill={themeConstants.color.lightBlue}
-      sideLength={45}
-      name={'github'}
-    />
-    <IconHolder
-      onClick={emailClick}
-      fill={themeConstants.color.lightBlue}
-      sideLength={45}
-      name={'email'}
-    />
-    <IconHolder
-      onClick={openResume}
-      fill={themeConstants.color.lightBlue}
-      sideLength={45}
-      name={'resume'}
-    />
-  </Container>
-);
+const IconContainer: React.FC<Props> = ({ margin, iconPadding, size }) => {
+  return (
+    <Container margin={margin}>
+      <IconHolder
+        onClick={linkedinClick}
+        fill={themeConstants.color.lightBlue}
+        sideLength={size}
+        name={'linkedin'}
+        iconPadding={iconPadding}
+      />
+      <IconHolder
+        onClick={githubClick}
+        fill={themeConstants.color.lightBlue}
+        sideLength={size}
+        name={'github'}
+        iconPadding={iconPadding}
+      />
+      <IconHolder
+        onClick={emailClick}
+        fill={themeConstants.color.lightBlue}
+        sideLength={size}
+        name={'email'}
+        iconPadding={iconPadding}
+      />
+      <IconHolder
+        onClick={openResume}
+        fill={themeConstants.color.lightBlue}
+        sideLength={size}
+        name={'resume'}
+        iconPadding={iconPadding}
+      />
+    </Container>
+  );
+};
 
 export default IconContainer;

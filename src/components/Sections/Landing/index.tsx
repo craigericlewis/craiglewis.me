@@ -48,7 +48,11 @@ const Landing: React.FC = () => {
             {'Yet another software engineer'}
           </Text>
         </TitleContainer>
-        <IconContainer margin={'0px auto 100px auto'} />
+        <IconContainer
+          margin={'0px auto 100px auto'}
+          iconPadding={'0px 9px 0px 9px'}
+          size={45}
+        />
       </TextDivision>
     </Container>
   );

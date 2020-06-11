@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Text from '../../components/Text';
 import Popin from './Popin';
-import { Size } from '../../types/Size';
 
 interface Props {
   color: string;
   popinEnabled?: boolean;
   title?: string;
   description?: string;
+  setSvgHovered?: (arg0: boolean) => void;
+  onClick?: () => void;
 }
 
 interface State {
@@ -32,12 +33,21 @@ const InnerContainer = styled.div`
   margin: 90px 0px 90px 0px;
 `;
 
+const Description = styled(Text)`
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto 60px;
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+`;
+
 const Subsection: React.FC<Props> = ({
   color,
   popinEnabled,
   title,
   description,
   children,
+  setSvgHovered,
+  onClick,
 }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const getWindowWidth = () => {
@@ -45,6 +55,13 @@ const Subsection: React.FC<Props> = ({
   };
   const [width, setWidth] = React.useState<State['width']>(getWindowWidth());
   const [isHovered, setIsHovered] = React.useState<State['isHovered']>(false);
+
+  const setHovered = (isHovered: boolean) => {
+    if (setSvgHovered !== undefined) {
+      setSvgHovered(isHovered);
+    }
+    setIsHovered(isHovered);
+  };
 
   React.useEffect(() => {
     function handleResize() {
@@ -62,8 +79,9 @@ const Subsection: React.FC<Props> = ({
   return (
     <Container
       color={color}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onClick={() => onClick()}
       ref={ref}
     >
       {popinEnabled && (
@@ -74,15 +92,25 @@ const Subsection: React.FC<Props> = ({
           as={'h2'}
           align={'center'}
           color={'white'}
-          size={'46px'}
+          size={'50px'}
+          bold={true}
           lineHeight={'1.3em'}
+          transform={isHovered ? 'translate3D(0, -6px, 0)' : 'translateZ(0)'}
+          transitionDuration={'0.3s'}
         >
           {title}
         </Text>
         {children}
-        <Text size={'16px'} align={'center'} color={'white'}>
+        <Description
+          size={'16px'}
+          align={'center'}
+          color={'white'}
+          lineHeight={'1.9em'}
+          transform={isHovered ? 'translate3D(0, 8px, 0)' : 'translateZ(0)'}
+          transitionDuration={'0.3s'}
+        >
           {description}
-        </Text>
+        </Description>
       </InnerContainer>
     </Container>
   );

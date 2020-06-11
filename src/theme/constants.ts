@@ -9,6 +9,7 @@ export const themeConstants = {
     lightBlue: '#98bec8',
     darkBlue: '#1f4954',
     green: '#3bab87',
+    red: '#c1605c',
   },
   fontSize: {
     [Size.XSMALL]: 16,
