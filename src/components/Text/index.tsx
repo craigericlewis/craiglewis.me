@@ -8,9 +8,9 @@ export interface TextProps extends BaseElementProps {
   /**
    * **Props that affect/augment styling of the Text component.**
    */
-  size?: Size | number;
+  size?: Size | string;
   color?: string;
-  lineHeight?: Size;
+  lineHeight?: string;
   align?: 'left' | 'right' | 'center' | 'justify';
   heading?: boolean; // affects font family
   underline?: boolean;
@@ -57,13 +57,11 @@ const TEXT_VARIANTS: VariantList = {
 const BaseText = styled.span<TextProps>`
   font-family: ${({ theme, heading }) =>
     theme.fontFamily[heading ? 'heading' : 'body']};
-  font-size: ${({ theme, size = Size.MEDIUM }) =>
-    theme.fontSize[size] || size}px;
+  font-size: ${({ theme, size = Size.MEDIUM }) => theme.fontSize[size] || size};
   color: ${({ theme, color = '' }) => theme.color[color] || color || 'inherit'};
   text-decoration-color: ${({ theme, color = '' }) =>
     theme.color[color] || color || 'inherit'};
-  line-height: ${({ theme, size = Size.MEDIUM, lineHeight }) =>
-    theme.lineHeight[lineHeight || size]};
+  line-height: ${({ lineHeight }) => lineHeight};
   text-align: ${({ align = 'left' }) => align};
   ${({ underline }) => underline && `text-decoration: underline;`}
   ${({ bold }) => bold && `font-weight: bold;`}
