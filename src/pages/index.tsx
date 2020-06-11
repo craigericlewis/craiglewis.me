@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PageWrapper from '../components/PageWrapper';
-import Landing from '../components/Sections/landing';
+import Landing from '../components/Sections/Landing';
 import Work from '../components/Sections/Work';
 import Footer from '../components/Sections/Footer';
 
