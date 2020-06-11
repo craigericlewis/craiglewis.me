@@ -25,15 +25,17 @@ const Title = styled.div<TitleProps>`
 `;
 
 const calculateTitleSize = () => {
-  return typeof window !== 'undefined' && window.innerWidth > 600
-    ? '160px'
-    : '18vw';
+  if (typeof window !== 'undefined') {
+    return window.innerWidth > 600 ? '160px' : '18vw';
+  }
+  return '160px';
 };
 
 const caculateTitleMargin = () => {
-  return typeof window !== 'undefined' && window.innerWidth > 600
-    ? '-140px'
-    : '-15.5vw';
+  if (typeof window !== 'undefined') {
+    return window.innerWidth > 600 ? '-140px' : '-15.5vw';
+  }
+  return '-140px';
 };
 
 const Content: React.FC<Props> = ({ title, children }) => {
