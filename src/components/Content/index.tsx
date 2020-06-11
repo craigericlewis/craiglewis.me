@@ -25,11 +25,15 @@ const Title = styled.div<TitleProps>`
 `;
 
 const calculateTitleSize = () => {
-  return window.innerWidth > 600 ? '160px' : '18vw';
+  return typeof window !== 'undefined' && window.innerWidth > 600
+    ? '160px'
+    : '18vw';
 };
 
 const caculateTitleMargin = () => {
-  return window.innerWidth > 600 ? '-140px' : '-15.5vw';
+  return typeof window !== 'undefined' && window.innerWidth > 600
+    ? '-140px'
+    : '-15.5vw';
 };
 
 const Content: React.FC<Props> = ({ title, children }) => {

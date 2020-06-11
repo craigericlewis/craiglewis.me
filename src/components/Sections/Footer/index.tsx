@@ -60,7 +60,9 @@ interface State {
 }
 
 const emailClick = () => {
-  window.location.href = 'mailto:celewis@uwaterloo.ca';
+  if (typeof window !== 'undefined') {
+    window.location.href = 'mailto:celewis@uwaterloo.ca';
+  }
 };
 
 const Footer: React.FC = () => {
