@@ -8,7 +8,7 @@ import Footer from '../components/Sections/Footer';
 const IndexPage: React.FC = () => (
   <PageWrapper title={'Craig Lewis'}>
     <Landing />
-    {/* <Work /> */}
+    <Work />
     <Footer />
   </PageWrapper>
 );

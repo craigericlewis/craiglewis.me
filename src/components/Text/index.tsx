@@ -16,6 +16,8 @@ export interface TextProps extends BaseElementProps {
   underline?: boolean;
   bold?: boolean;
   italic?: boolean;
+  transform?: string;
+  transitionDuration?: string;
 
   /**
    * What HTML element type to use to render the component.
@@ -68,6 +70,8 @@ const BaseText = styled.span<TextProps>`
   ${({ italic }) => italic && `font-style: italic;`}
   margin: 0;
   padding: 0;
+  transform: ${({ transform }) => transform};
+  transition-duration: ${({ transitionDuration }) => transitionDuration};
 `;
 
 const Text: React.FC<TextProps> = ({

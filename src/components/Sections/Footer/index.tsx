@@ -4,7 +4,7 @@ import Content from '../../Content';
 import { Me } from '../../../assets/images';
 import Text from '../../Text';
 import theme from '../../../theme';
-import Icons from '../../Socials';
+import IconContainer from '../../Socials';
 
 const SubsectionContainer = styled.div`
   display: flex;
@@ -99,7 +99,11 @@ const Footer: React.FC = () => {
           <Name color={theme.color.white} size={'18px'} lineHeight={'1.9em'}>
             {'Craig Eric Lewis'}
           </Name>
-          <Icons margin={'40px 0px 0px 40px'} />
+          <IconContainer
+            margin={'30px 0px 0px 40px'}
+            iconPadding={'0px 5px 0px 5px'}
+            size={30}
+          />
         </SubFooter>
         <MyPicture src={Me} />
       </SubsectionContainer>

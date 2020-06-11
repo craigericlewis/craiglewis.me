@@ -2,9 +2,9 @@ import React from 'react';
 import iconDict from '../Icon/Icons';
 import styled from 'styled-components';
 
-const IconContainer = styled.div`
-  padding: 0px 9px 0px 9px;
-`;
+interface IconProps {
+  iconPadding: string;
+}
 
 interface State {
   isHovered: boolean;
@@ -15,9 +15,20 @@ interface Props {
   sideLength: number;
   name: string;
   onClick: () => void;
+  iconPadding: string;
 }
 
-const IconHolder: React.FC<Props> = ({ fill, sideLength, name, onClick }) => {
+const IconContainer = styled.div<IconProps>`
+  padding: ${({ iconPadding }) => iconPadding};
+`;
+
+const IconHolder: React.FC<Props> = ({
+  fill,
+  sideLength,
+  name,
+  onClick,
+  iconPadding,
+}) => {
   const [isHovered, setIsHovered] = React.useState<State['isHovered']>(false);
   const Icon = iconDict(fill, sideLength, name, isHovered);
 
@@ -26,6 +37,7 @@ const IconHolder: React.FC<Props> = ({ fill, sideLength, name, onClick }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => onClick()}
+      iconPadding={iconPadding}
     >
       {Icon}
     </IconContainer>
