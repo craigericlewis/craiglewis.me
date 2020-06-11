@@ -2,13 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import IconHolder from './IconHolder';
 import { Resume } from '../../assets/resume';
-import { themeConstants } from '../../theme/constants'
+import { themeConstants } from '../../theme/constants';
 
-const Container = styled.div`
+const Container = styled.div<Props>`
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 100px;
+  margin: ${({ margin }) => margin};
 `;
 
 const linkedinClick = () => {
@@ -27,8 +25,12 @@ const openResume = () => {
   window.open(Resume);
 };
 
-const IconContainer = () => (
-  <Container>
+interface Props {
+  margin: string;
+}
+
+const IconContainer: React.FC<Props> = ({ margin }) => (
+  <Container margin={margin}>
     <IconHolder
       onClick={linkedinClick}
       fill={themeConstants.color.lightBlue}
