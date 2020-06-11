@@ -7,6 +7,8 @@ export const themeConstants = {
     beige: '#fefbf5',
     turquoise: '#224A54',
     lightBlue: '#98bec8',
+    darkBlue: '#1f4954',
+    green: '#3bab87',
   },
   fontSize: {
     [Size.XSMALL]: 16,

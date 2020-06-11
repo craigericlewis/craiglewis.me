@@ -6,6 +6,9 @@ import { Size } from '../../types/Size';
 
 interface Props {
   color: string;
+  popinEnabled?: boolean;
+  title?: string;
+  description?: string;
 }
 
 interface State {
@@ -21,13 +24,21 @@ const Container = styled.div<ContainerProps>`
   height: 580px;
   background-color: ${({ color }) => color};
   cursor: pointer;
+  width: 100%;
+  flex: 1 1 0px;
 `;
 
 const InnerContainer = styled.div`
   margin: 90px 0px 90px 0px;
 `;
 
-const Subsection: React.FC<Props> = ({ color, children }) => {
+const Subsection: React.FC<Props> = ({
+  color,
+  popinEnabled,
+  title,
+  description,
+  children,
+}) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const getWindowWidth = () => {
     return ref.current ? ref.current.offsetWidth : 1200;
@@ -55,20 +66,22 @@ const Subsection: React.FC<Props> = ({ color, children }) => {
       onMouseLeave={() => setIsHovered(false)}
       ref={ref}
     >
-      <Popin text={'Read More'} width={width} isHovered={isHovered} />
+      {popinEnabled && (
+        <Popin text={'Read More'} width={width} isHovered={isHovered} />
+      )}
       <InnerContainer>
         <Text
           as={'h2'}
           align={'center'}
           color={'white'}
           size={'46px'}
-          lineHeight={Size.XLARGE}
+          lineHeight={'1.3em'}
         >
-          {'Postmates'}
+          {title}
         </Text>
         {children}
         <Text size={'16px'} align={'center'} color={'white'}>
-          {'As a Software Engineer Intern at Postmates'}
+          {description}
         </Text>
       </InnerContainer>
     </Container>

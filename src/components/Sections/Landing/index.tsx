@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LandingSVG } from '../../assets/images/index';
-import Text from '../../components/Text';
-import theme from '../../theme/index';
-import IconContainer from './IconContainer';
+import { LandingSVG } from '../../../assets/images/index';
+import Text from '../../Text';
+import theme from '../../../theme';
+import IconContainer from '../../Socials';
 
 const Container = styled.div`
   display: flex;
@@ -48,7 +48,7 @@ const Landing: React.FC = () => {
             {'Yet another software engineer'}
           </Text>
         </TitleContainer>
-        <IconContainer />
+        <IconContainer margin={'0px auto 100px auto'} />
       </TextDivision>
     </Container>
   );

@@ -1,14 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Subsection from './Subsection';
 import Text from '../../components/Text';
 
 interface Props {
   title: string;
-}
-
-interface State {
-  width: number;
 }
 
 interface TitleProps {
@@ -30,14 +25,14 @@ const Title = styled.div<TitleProps>`
 `;
 
 const calculateTitleSize = () => {
-  return window.innerWidth > 600 ? '160px' : '18vw'
-}
+  return window.innerWidth > 600 ? '160px' : '18vw';
+};
 
 const caculateTitleMargin = () => {
-  return window.innerWidth > 600 ? '-140px' : '-15.5vw'
-}
+  return window.innerWidth > 600 ? '-140px' : '-15.5vw';
+};
 
-const Content: React.FC<Props> = ({ title }) => {
+const Content: React.FC<Props> = ({ title, children }) => {
   const [titleSize, setTitleSize] = React.useState(calculateTitleSize());
   const [titleMargin, setTitleMargin] = React.useState(caculateTitleMargin());
 
@@ -58,7 +53,7 @@ const Content: React.FC<Props> = ({ title }) => {
           {title}
         </Text>
       </Title>
-      <Subsection color={'#3bab87'}></Subsection>
+      {children}
     </OuterContainer>
   );
 };

@@ -8,14 +8,11 @@ interface PageWrapperProps extends BaseElementProps {
   title?: string;
 }
 
-export const PAGE_VERT_PADDING = 0;
-export const PAGE_HORIZ_PADDING = 0;
-
 export const PageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: ${PAGE_VERT_PADDING}vh ${PAGE_HORIZ_PADDING}vw;
+  padding-bottom: 50px;
   background-color: ${theme.color.beige};
 `;
 

@@ -1,13 +1,15 @@
 import React from 'react';
 
 import PageWrapper from '../components/PageWrapper';
-import LandingSection from './landing';
-import Content from '../components/Content';
+import Landing from '../components/Sections/landing';
+import Work from '../components/Sections/Work';
+import Footer from '../components/Sections/Footer';
 
 const IndexPage: React.FC = () => (
   <PageWrapper title={'Craig Lewis'}>
-    <LandingSection />
-    <Content title={'Work.'} />
+    <Landing />
+    {/* <Work /> */}
+    <Footer />
   </PageWrapper>
 );
 export default IndexPage;

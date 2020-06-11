@@ -1,5 +1,5 @@
 import React from 'react';
-import iconDict from '../../components/Icon/Icons';
+import iconDict from '../Icon/Icons';
 import styled from 'styled-components';
 
 const IconContainer = styled.div`
