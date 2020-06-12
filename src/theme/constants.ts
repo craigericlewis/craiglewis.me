@@ -7,9 +7,11 @@ export const themeConstants = {
     beige: '#fefbf5',
     turquoise: '#224A54',
     lightBlue: '#98bec8',
+    lighterBlue: '#d3e1e1',
     darkBlue: '#1f4954',
     green: '#3bab87',
     red: '#c1605c',
+    peach: '#e9c3b8',
   },
   fontSize: {
     [Size.XSMALL]: 16,

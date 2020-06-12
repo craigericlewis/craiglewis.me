@@ -81,9 +81,9 @@ const Footer: React.FC = () => {
             onMouseLeave={() => setIsHovered(false)}
             onClick={() => emailClick()}
           >
-            {'craigericlewis'}
+            {'celewis'}
             <br />
-            {'@gmail.com'}
+            {'@uwaterloo.ca'}
           </Email>
           <Divider />
           <Description

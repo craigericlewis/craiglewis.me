@@ -12,7 +12,6 @@ interface TitleProps {
 
 const OuterContainer = styled.div`
   display: flex;
-  height: 580px;
   flex-direction: column;
   margin-top: 240px;
   max-width: 1200px;
