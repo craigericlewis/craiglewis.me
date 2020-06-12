@@ -10,6 +10,8 @@ interface Props {
   description?: string;
   setSvgHovered?: (arg0: boolean) => void;
   onClick?: () => void;
+  textColor: string;
+  popinText: string;
 }
 
 interface State {
@@ -48,6 +50,8 @@ const Subsection: React.FC<Props> = ({
   children,
   setSvgHovered,
   onClick,
+  textColor,
+  popinText,
 }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const getWindowWidth = () => {
@@ -61,6 +65,12 @@ const Subsection: React.FC<Props> = ({
       setSvgHovered(isHovered);
     }
     setIsHovered(isHovered);
+  };
+
+  const containerOnClick = () => {
+    if (onClick !== undefined) {
+      onClick();
+    }
   };
 
   React.useEffect(() => {
@@ -81,17 +91,17 @@ const Subsection: React.FC<Props> = ({
       color={color}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={() => onClick()}
+      onClick={() => containerOnClick()}
       ref={ref}
     >
       {popinEnabled && (
-        <Popin text={'Read More'} width={width} isHovered={isHovered} />
+        <Popin text={popinText} width={width} isHovered={isHovered} />
       )}
       <InnerContainer>
         <Text
           as={'h2'}
           align={'center'}
-          color={'white'}
+          color={textColor}
           size={'50px'}
           bold={true}
           lineHeight={'1.3em'}
@@ -104,7 +114,7 @@ const Subsection: React.FC<Props> = ({
         <Description
           size={'16px'}
           align={'center'}
-          color={'white'}
+          color={textColor}
           lineHeight={'1.9em'}
           transform={isHovered ? 'translate3D(0, 8px, 0)' : 'translateZ(0)'}
           transitionDuration={'0.3s'}

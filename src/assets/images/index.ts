@@ -8,4 +8,5 @@ export { default as Favicon32PNG } from './favicon/favicon-32x32.png';
 export { default as Favicon16PNG } from './favicon/favicon-16x16.png';
 export { default as FaviconICO } from './favicon/favicon.ico';
 export { default as PostmatesSVG } from './work/postmates.inline.svg';
+export { default as VidyardSVG } from './work/vidyard.inline.svg';
 export { default as Me } from './me/me.jpeg';
