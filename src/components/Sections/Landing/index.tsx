@@ -19,8 +19,6 @@ const Container = styled.div`
 `;
 
 const LandingIconContainer = styled.div`
-  width: 100%;
-  height: 100%;
   position: absolute;
   z-index: 0;
 `;
