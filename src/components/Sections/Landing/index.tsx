@@ -10,6 +10,7 @@ import {
 import Text from '../../Text';
 import theme from '../../../theme';
 import IconContainer from '../../Socials';
+import Pacman from 'react-spinners/PacmanLoader';
 
 const Container = styled.div`
   height: 100vh;
@@ -79,6 +80,12 @@ const LandingMouse = styled(MouseSVG)<SVGProps>`
   margin-left: -180px;
 `;
 
+const LandingPen = styled(PenSVG)<SVGProps>`
+  transform: rotate(45deg);
+  width: 200px;
+  height: 200px;
+`;
+
 interface SVGProps {
   width?: number;
   height?: number;
@@ -87,10 +94,12 @@ interface SVGProps {
 interface State {
   width: number;
   height: number;
+  loading: boolean;
 }
 
 const Landing: React.FC = () => {
   const ref = React.useRef<HTMLDivElement>(null);
+  const [loading, setLoading] = React.useState<State['loading']>(true);
 
   const getWindowWidth = () => {
     return ref.current ? ref.current.offsetWidth : 1920;
@@ -119,47 +128,41 @@ const Landing: React.FC = () => {
     setHeight(getWindowHeight());
   }, [ref.current]);
 
+  React.useEffect(() => {
+    setTimeout(() => setLoading(false), 1000);
+  }, []);
+
   return (
     <Container ref={ref}>
-      <LandingNotebook width={width} />
-      <LandingKeyboard height={height} />
-      <LandingController width={width} height={height} />
-      <LandingMouse />
-      <TitleContainer>
-        {/* <Text size={'30px'} color={theme.color.black}>{`Hey! I'm`}</Text> */}
-        <Text size={'120px'} color={theme.color.black} as={'h1'}>
-          {'Craig Lewis'}
-        </Text>
-        <Text size={'34px'} color={theme.color.black}>
-          {'Yet another software engineer'}
-        </Text>
-        <IconContainer
-          margin={'20px auto 100px auto'}
-          iconPadding={'0px 9px 0px 9px'}
-          size={45}
-          fill={theme.color.black}
-          hoverFill={theme.color.mediumBlue}
-        />
-      </TitleContainer>
-      {/* <IconDivision>
-        <LandingSVG height={svgSize} width={svgSize} />
-      </IconDivision>
-      <TextDivision>
+      {loading && (
         <TitleContainer>
-          <Text size={'30px'} color={theme.color.beige}>{`Hey! I'm`}</Text>
-          <Text size={'90px'} color={theme.color.beige} as={'h1'}>
-            {'Craig Lewis'}
-          </Text>
-          <Text size={'34px'} color={theme.color.beige}>
-            {'Yet another software engineer'}
-          </Text>
+          <Pacman color={theme.color.darkGrey} size={50} />
         </TitleContainer>
-        <IconContainer
-          margin={'0px auto 100px auto'}
-          iconPadding={'0px 9px 0px 9px'}
-          size={45}
-        />
-      </TextDivision> */}
+      )}
+      {!loading && (
+        <>
+          <LandingNotebook width={width} />
+          <LandingKeyboard height={height} />
+          <LandingController width={width} height={height} />
+          <LandingMouse />
+          <TitleContainer>
+            <Text size={'120px'} color={theme.color.black} as={'h1'}>
+              {'Craig Lewis'}
+            </Text>
+            <Text size={'34px'} color={theme.color.black}>
+              {'Yet another software engineer'}
+            </Text>
+            <IconContainer
+              margin={'20px auto 0px auto'}
+              iconPadding={'0px 9px 0px 9px'}
+              size={45}
+              fill={theme.color.black}
+              hoverFill={theme.color.mediumBlue}
+            />
+            <LandingPen />
+          </TitleContainer>
+        </>
+      )}
     </Container>
   );
 };
