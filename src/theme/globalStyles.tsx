@@ -6,7 +6,8 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: ${themeConstants.color.beige}
+    background-color: ${themeConstants.color.beige};
+    font-family: Roboto,sans-serif !important;
   }
   
   *, *:before, *:after {
