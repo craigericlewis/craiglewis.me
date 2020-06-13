@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Text from '../../components/Text';
 
@@ -23,25 +23,21 @@ const Title = styled.div<TitleProps>`
   margin-top: ${({ titleMargin }) => titleMargin};
 `;
 
-const calculateTitleSize = () => {
-  if (typeof window !== 'undefined') {
-    return window.innerWidth > 600 ? '160px' : '18vw';
-  }
-  return '160px';
-};
-
-const caculateTitleMargin = () => {
-  if (typeof window !== 'undefined') {
-    return window.innerWidth > 600 ? '-140px' : '-15.5vw';
-  }
-  return '-140px';
-};
-
 const Content: React.FC<Props> = ({ title, children }) => {
-  const [titleSize, setTitleSize] = React.useState(calculateTitleSize());
-  const [titleMargin, setTitleMargin] = React.useState(caculateTitleMargin());
+  const ref = useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
+  const calculateTitleSize = () => {
+    return ref.current && ref.current.offsetWidth > 540 ? '160px' : '18vw';
+  };
+
+  const caculateTitleMargin = () => {
+    return ref.current && ref.current.offsetWidth > 540 ? '-140px' : '-15.5vw';
+  };
+
+  const [titleSize, setTitleSize] = useState(calculateTitleSize());
+  const [titleMargin, setTitleMargin] = useState(caculateTitleMargin());
+
+  useEffect(() => {
     function handleResize() {
       setTitleSize(calculateTitleSize());
       setTitleMargin(caculateTitleMargin());
@@ -51,8 +47,13 @@ const Content: React.FC<Props> = ({ title, children }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  React.useEffect(() => {
+    setTitleSize(calculateTitleSize());
+    setTitleMargin(caculateTitleMargin());
+  }, [ref.current]);
+
   return (
-    <OuterContainer>
+    <OuterContainer ref={ref}>
       <Title titleMargin={titleMargin}>
         <Text size={titleSize} as={'h2'}>
           {title}
