@@ -12,6 +12,7 @@ export const themeConstants = {
     green: '#3bab87',
     red: '#c1605c',
     peach: '#e9c3b8',
+    mediumBlue: '#006097',
   },
   fontSize: {
     [Size.XSMALL]: 16,
