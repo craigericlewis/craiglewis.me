@@ -89,21 +89,16 @@ interface State {
   height: number;
 }
 
-const getWindowWidth = () => {
-  if (typeof window !== 'undefined') {
-    return window.innerWidth;
-  }
-  return 0;
-};
-
-const getWindowHeight = () => {
-  if (typeof window !== 'undefined') {
-    return window.innerHeight;
-  }
-  return 0;
-};
-
 const Landing: React.FC = () => {
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  const getWindowWidth = () => {
+    return ref.current ? ref.current.offsetWidth : 1920;
+  };
+  const getWindowHeight = () => {
+    return ref.current ? ref.current.offsetHeight : 1080;
+  };
+
   const [width, setWidth] = React.useState<State['width']>(getWindowWidth());
   const [height, setHeight] = React.useState<State['height']>(
     getWindowHeight()
@@ -119,8 +114,13 @@ const Landing: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  React.useEffect(() => {
+    setWidth(getWindowWidth());
+    setHeight(getWindowHeight());
+  }, [ref.current]);
+
   return (
-    <Container>
+    <Container ref={ref}>
       <LandingNotebook width={width} />
       <LandingKeyboard height={height} />
       <LandingController width={width} height={height} />
