@@ -3,7 +3,7 @@ const path = require(`path`); // eslint-disable-line
 module.exports = {
   siteMetadata: {
     title: `craiglewis.me`,
-    description: `Personal website of Craig Lewis, computer science student at the University of Waterloo`,
+    description: `Craig Lewis' personal website, computer science student at the University of Waterloo`,
     author: `@craigericlewis`,
     siteUrl: `https://craiglewis.me`,
   },
@@ -41,11 +41,6 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-react-svg',
-      // options: {
-      //   rule: {
-      //     include: /\.inline\.svg$/,
-      //   },
-      // },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
