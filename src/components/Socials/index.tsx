@@ -2,12 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import IconHolder from './IconHolder';
 import { Resume } from '../../assets/resume';
-import { themeConstants } from '../../theme/constants';
 
 interface Props {
   margin: string;
   iconPadding: string;
   size: number;
+  fill: string;
+  hoverFill: string;
 }
 
 interface ContainerProps {
@@ -35,33 +36,43 @@ const openResume = () => {
   window.open(Resume);
 };
 
-const IconContainer: React.FC<Props> = ({ margin, iconPadding, size }) => {
+const IconContainer: React.FC<Props> = ({
+  margin,
+  iconPadding,
+  size,
+  fill,
+  hoverFill,
+}) => {
   return (
     <Container margin={margin}>
       <IconHolder
         onClick={linkedinClick}
-        fill={themeConstants.color.lightBlue}
+        fill={fill}
+        hoverFill={hoverFill}
         sideLength={size}
         name={'linkedin'}
         iconPadding={iconPadding}
       />
       <IconHolder
         onClick={githubClick}
-        fill={themeConstants.color.lightBlue}
+        fill={fill}
+        hoverFill={hoverFill}
         sideLength={size}
         name={'github'}
         iconPadding={iconPadding}
       />
       <IconHolder
         onClick={emailClick}
-        fill={themeConstants.color.lightBlue}
+        fill={fill}
+        hoverFill={hoverFill}
         sideLength={size}
         name={'email'}
         iconPadding={iconPadding}
       />
       <IconHolder
         onClick={openResume}
-        fill={themeConstants.color.lightBlue}
+        fill={fill}
+        hoverFill={hoverFill}
         sideLength={size}
         name={'resume'}
         iconPadding={iconPadding}

@@ -12,6 +12,7 @@ interface State {
 
 interface Props {
   fill: string;
+  hoverFill: string;
   sideLength: number;
   name: string;
   onClick: () => void;
@@ -24,13 +25,15 @@ const IconContainer = styled.div<IconProps>`
 
 const IconHolder: React.FC<Props> = ({
   fill,
+  hoverFill,
   sideLength,
   name,
   onClick,
   iconPadding,
 }) => {
   const [isHovered, setIsHovered] = React.useState<State['isHovered']>(false);
-  const Icon = iconDict(fill, sideLength, name, isHovered);
+  const color = isHovered ? hoverFill : fill;
+  const Icon = iconDict(color, sideLength, name);
 
   return (
     <IconContainer

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import Content from '../../Content';
 import { Me } from '../../../assets/images';
 import Text from '../../Text';
-import theme from '../../../theme';
 import IconContainer from '../../Socials';
+import theme from '../../../theme';
 
 const SubsectionContainer = styled.div`
   display: flex;
@@ -103,6 +103,8 @@ const Footer: React.FC = () => {
             margin={'30px 0px 0px 40px'}
             iconPadding={'0px 5px 0px 5px'}
             size={30}
+            fill={theme.color.beige}
+            hoverFill={theme.color.lightBlue}
           />
         </SubFooter>
         <MyPicture src={Me} />
