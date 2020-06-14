@@ -174,7 +174,6 @@ interface State {
 const Landing: React.FC = () => {
   const { color: themeColors } = useContext(ThemeContext);
   const ref = useRef<HTMLDivElement>(null);
-  const [loading, setLoading] = useState<State['loading']>(true);
 
   const getWindowWidth = () => {
     return ref.current ? ref.current.offsetWidth : 1920;
@@ -201,51 +200,40 @@ const Landing: React.FC = () => {
     setHeight(getWindowHeight());
   }, [ref.current]);
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
-
   return (
     <Container ref={ref}>
-      {loading && (
+      <>
         <TitleContainer>
-          <Pacman color={themeColors.darkGrey} size={50} />
+          <Name as={'h1'}>{'Craig Lewis'}</Name>
+          <Subtitle size={'34px'} color={themeColors.black}>
+            {'Yet another software engineer'}
+          </Subtitle>
+          {deviceBreakpoints.xlMobile >= width ? (
+            <IconContainer
+              margin={'20px auto 0px auto'}
+              iconPadding={'0px 4px 0px 4px'}
+              size={30}
+              fill={themeColors.black}
+              hoverFill={themeColors.mediumBlue}
+            />
+          ) : (
+            <IconContainer
+              margin={'20px auto 0px auto'}
+              iconPadding={'0px 9px 0px 9px'}
+              size={45}
+              fill={themeColors.black}
+              hoverFill={themeColors.mediumBlue}
+            />
+          )}
+          <LandingPen />
         </TitleContainer>
-      )}
-      {!loading && (
-        <>
-          <TitleContainer>
-            <Name as={'h1'}>{'Craig Lewis'}</Name>
-            <Subtitle size={'34px'} color={themeColors.black}>
-              {'Yet another software engineer'}
-            </Subtitle>
-            {deviceBreakpoints.xlMobile >= width ? (
-              <IconContainer
-                margin={'20px auto 0px auto'}
-                iconPadding={'0px 4px 0px 4px'}
-                size={30}
-                fill={themeColors.black}
-                hoverFill={themeColors.mediumBlue}
-              />
-            ) : (
-              <IconContainer
-                margin={'20px auto 0px auto'}
-                iconPadding={'0px 9px 0px 9px'}
-                size={45}
-                fill={themeColors.black}
-                hoverFill={themeColors.mediumBlue}
-              />
-            )}
-            <LandingPen />
-          </TitleContainer>
-          <LandingIconContainer>
-            <LandingNotebook width={width} />
-            <LandingKeyboard height={height} />
-            <LandingController width={width} height={height} />
-            <LandingMouse />
-          </LandingIconContainer>
-        </>
-      )}
+        <LandingIconContainer>
+          <LandingNotebook width={width} />
+          <LandingKeyboard height={height} />
+          <LandingController width={width} height={height} />
+          <LandingMouse />
+        </LandingIconContainer>
+      </>
     </Container>
   );
 };
