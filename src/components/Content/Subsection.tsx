@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Text from '../../components/Text';
 import Popin from './Popin';
@@ -53,12 +53,12 @@ const Subsection: React.FC<Props> = ({
   textColor,
   popinText,
 }) => {
-  const ref = React.useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const getWindowWidth = () => {
     return ref.current ? ref.current.offsetWidth : 1200;
   };
-  const [width, setWidth] = React.useState<State['width']>(getWindowWidth());
-  const [isHovered, setIsHovered] = React.useState<State['isHovered']>(false);
+  const [width, setWidth] = useState<State['width']>(getWindowWidth());
+  const [isHovered, setIsHovered] = useState<State['isHovered']>(false);
 
   const setHovered = (isHovered: boolean) => {
     if (setSvgHovered !== undefined) {
@@ -73,7 +73,7 @@ const Subsection: React.FC<Props> = ({
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     function handleResize() {
       setWidth(getWindowWidth());
     }
@@ -82,7 +82,7 @@ const Subsection: React.FC<Props> = ({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setWidth(getWindowWidth());
   }, [ref.current]);
 
