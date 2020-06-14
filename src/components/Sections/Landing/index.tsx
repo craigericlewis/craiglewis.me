@@ -35,10 +35,10 @@ const LandingContainer = styled.div`
 const LandingIconContainer = styled.div`
   position: absolute;
   z-index: 0;
-  height: 100vh;
 `;
 
 const TitleContainer = styled.div`
+  // min-width: 650px;
   height: 100vh;
   width: 100vw;
   text-align: center;
@@ -188,7 +188,6 @@ interface State {
 const Landing: React.FC = () => {
   const { color: themeColors } = useContext(ThemeContext);
   const ref = useRef<HTMLDivElement>(null);
-  const [loading, setLoading] = useState<State['loading']>(true);
 
   const getWindowWidth = () => {
     return ref.current ? ref.current.offsetWidth : 1920;
@@ -215,15 +214,32 @@ const Landing: React.FC = () => {
     setHeight(getWindowHeight());
   }, [ref.current]);
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
-
   return (
     <Container ref={ref}>
       {/* {loading && (
         <TitleContainer>
-          <Pacman color={themeColors.darkGrey} size={50} />
+          <Name as={'h1'}>{'Craig Lewis'}</Name>
+          <Subtitle size={'34px'} color={themeColors.black}>
+            {'Yet another software engineer'}
+          </Subtitle>
+          {deviceBreakpoints.xlMobile >= width ? (
+            <IconContainer
+              margin={'20px auto 0px auto'}
+              iconPadding={'0px 4px 0px 4px'}
+              size={30}
+              fill={themeColors.black}
+              hoverFill={themeColors.mediumBlue}
+            />
+          ) : (
+            <IconContainer
+              margin={'20px auto 0px auto'}
+              iconPadding={'0px 9px 0px 9px'}
+              size={45}
+              fill={themeColors.black}
+              hoverFill={themeColors.mediumBlue}
+            />
+          )}
+          <LandingPen />
         </TitleContainer>
       )} */}
       {
