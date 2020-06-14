@@ -36,7 +36,7 @@ const openResume = () => {
   window.open(Resume);
 };
 
-const IconContainer: React.FC<Props> = ({
+const Socials: React.FC<Props> = ({
   margin,
   iconPadding,
   size,
@@ -81,4 +81,4 @@ const IconContainer: React.FC<Props> = ({
   );
 };
 
-export default IconContainer;
+export default Socials;

@@ -3,8 +3,12 @@ import styled from 'styled-components';
 import Content from '../../Content';
 import { Me } from '../../../assets/images';
 import Text from '../../Text';
-import IconContainer from '../../Socials';
+import Socials from '../../Socials';
 import theme from '../../../theme';
+
+interface State {
+  isHovered: boolean;
+}
 
 const SubsectionContainer = styled.div`
   display: flex;
@@ -55,10 +59,6 @@ const Name = styled(Text)`
   margin-left: 50px;
 `;
 
-interface State {
-  isHovered: boolean;
-}
-
 const emailClick = () => {
   if (typeof window !== 'undefined') {
     window.location.href = 'mailto:celewis@uwaterloo.ca';
@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
           <Name color={theme.color.white} size={'18px'} lineHeight={'1.9em'}>
             {'Craig Eric Lewis'}
           </Name>
-          <IconContainer
+          <Socials
             margin={'30px 0px 0px 40px'}
             iconPadding={'0px 5px 0px 5px'}
             size={30}
