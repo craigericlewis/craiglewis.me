@@ -7,7 +7,7 @@ import {
 } from '../../assets/images/index';
 
 const seoDescription =
-  'Personal website of Craig Lewis, computer science student at the University of Waterloo';
+  "Craig Lewis' personal website, computer science student at the University of Waterloo";
 
 export interface HelmetProps {
   pageTitle?: string;
