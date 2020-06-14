@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Content from '../../Content';
 import { Me } from '../../../assets/images';
@@ -27,11 +27,6 @@ const MyPicture = styled.img`
 
 const Email = styled(Text)`
   margin: 50px;
-  font-size: 60px;
-
-  ${({ theme }) => theme.mediaQueries.xlMobile`
-    font-size: 40px; 
-  `}
 `;
 
 const Divider = styled.div`
@@ -62,7 +57,6 @@ const Name = styled(Text)`
 
 interface State {
   isHovered: boolean;
-  showMe: boolean;
 }
 
 const emailClick = () => {
@@ -72,34 +66,10 @@ const emailClick = () => {
 };
 
 const Footer: React.FC = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [showMe, setShowMe] = useState<State['showMe']>(true);
-
-  useEffect(() => {
-    function handleResize() {
-      if (!ref.current) {
-        setShowMe(true);
-      } else {
-        setShowMe(ref.current.offsetWidth >= 890);
-      }
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (!ref.current) {
-      setShowMe(true);
-    } else {
-      setShowMe(ref.current.offsetWidth >= 890);
-    }
-  }, [ref.current]);
-
   const [isHovered, setIsHovered] = useState<State['isHovered']>(false);
   return (
     <Content title={'Say Hi.'}>
-      <SubsectionContainer ref={ref}>
+      <SubsectionContainer>
         <SubFooter color={theme.color.darkBlue}>
           <Email
             color={theme.color.white}
@@ -130,14 +100,14 @@ const Footer: React.FC = () => {
             {'Craig Eric Lewis'}
           </Name>
           <IconContainer
-            margin={'30px 0px 20px 40px'}
+            margin={'30px 0px 0px 40px'}
             iconPadding={'0px 5px 0px 5px'}
             size={30}
             fill={theme.color.beige}
             hoverFill={theme.color.lightBlue}
           />
         </SubFooter>
-        {showMe && <MyPicture src={Me} />}
+        <MyPicture src={Me} />
       </SubsectionContainer>
     </Content>
   );
