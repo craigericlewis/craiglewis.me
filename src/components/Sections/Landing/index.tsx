@@ -21,10 +21,10 @@ const Container = styled.div`
 const LandingIconContainer = styled.div`
   position: absolute;
   z-index: 0;
+  height: 100vh;
 `;
 
 const TitleContainer = styled.div`
-  // min-width: 650px;
   height: 100vh;
   width: 100vw;
   text-align: center;
