@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import styled, { ThemeContext } from 'styled-components';
-import Pacman from 'react-spinners/PacmanLoader';
+import Loader from 'react-spinners/ScaleLoader';
 import {
   MouseSVG,
   ControllerSVG,
@@ -186,6 +186,7 @@ interface State {
 }
 
 const Landing: React.FC = () => {
+  const [loading, setLoading] = useState<State['loading']>(true);
   const { color: themeColors } = useContext(ThemeContext);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -214,35 +215,17 @@ const Landing: React.FC = () => {
     setHeight(getWindowHeight());
   }, [ref.current]);
 
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 500);
+  }, []);
+
   return (
     <Container ref={ref}>
-      {/* {loading && (
+      {loading ? (
         <TitleContainer>
-          <Name as={'h1'}>{'Craig Lewis'}</Name>
-          <Subtitle size={'34px'} color={themeColors.black}>
-            {'Yet another software engineer'}
-          </Subtitle>
-          {deviceBreakpoints.xlMobile >= width ? (
-            <IconContainer
-              margin={'20px auto 0px auto'}
-              iconPadding={'0px 4px 0px 4px'}
-              size={30}
-              fill={themeColors.black}
-              hoverFill={themeColors.mediumBlue}
-            />
-          ) : (
-            <IconContainer
-              margin={'20px auto 0px auto'}
-              iconPadding={'0px 9px 0px 9px'}
-              size={45}
-              fill={themeColors.black}
-              hoverFill={themeColors.mediumBlue}
-            />
-          )}
-          <LandingPen />
+          <Loader color={themeColors.black} />
         </TitleContainer>
-      )} */}
-      {
+      ) : (
         <LandingContainer>
           <TitleContainer>
             <Name as={'h1'}>{'Craig Lewis'}</Name>
@@ -275,7 +258,7 @@ const Landing: React.FC = () => {
             <LandingMouse />
           </LandingIconContainer>
         </LandingContainer>
-      }
+      )}
     </Container>
   );
 };
