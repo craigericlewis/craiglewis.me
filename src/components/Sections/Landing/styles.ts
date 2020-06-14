@@ -42,6 +42,7 @@ export const LandingContainer = styled.div`
 export const LandingIconContainer = styled.div`
   position: absolute;
   z-index: 0;
+  height: 100vh;
 `;
 
 export const TitleContainer = styled.div`

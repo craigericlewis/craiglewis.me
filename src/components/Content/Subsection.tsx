@@ -24,7 +24,6 @@ interface ContainerProps {
 }
 
 const Container = styled.div<ContainerProps>`
-  height: 580px;
   background-color: ${({ color }) => color};
   cursor: pointer;
   width: 100%;
@@ -32,7 +31,7 @@ const Container = styled.div<ContainerProps>`
 `;
 
 const InnerContainer = styled.div`
-  margin: 90px 0px 90px 0px;
+  margin: 90px 0px 20px 0px;
 `;
 
 const Description = styled(Text)`
