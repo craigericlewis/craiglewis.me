@@ -18,6 +18,20 @@ const Container = styled.div`
   margin-bottom: 200px;
 `;
 
+const LandingContainer = styled.div`
+  animation: expand 0.8s ease forwards;
+  transition: all 0.8s ease;
+
+  @keyframes expand {
+    0% {
+      transform: translateX(1400px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+`;
+
 const LandingIconContainer = styled.div`
   position: absolute;
   z-index: 0;
@@ -113,14 +127,14 @@ const LandingMouse = styled(MouseSVG)<SVGProps>`
   margin-top: -200px;
   margin-left: -180px;
 
-  ${({ theme, width }) => theme.mediaQueries.medium`
+  ${({ theme }) => theme.mediaQueries.medium`
     width: 400px;
     height: 425px;
     margin-left: -100px;
     top: 100px;
   `}
 
-  ${({ theme, width }) => theme.mediaQueries.xlMobile`
+  ${({ theme }) => theme.mediaQueries.xlMobile`
     width: 200px;
     height: 225px;
     margin-left: -51px;
@@ -207,13 +221,13 @@ const Landing: React.FC = () => {
 
   return (
     <Container ref={ref}>
-      {loading && (
+      {/* {loading && (
         <TitleContainer>
           <Pacman color={themeColors.darkGrey} size={50} />
         </TitleContainer>
-      )}
-      {!loading && (
-        <>
+      )} */}
+      {
+        <LandingContainer>
           <TitleContainer>
             <Name as={'h1'}>{'Craig Lewis'}</Name>
             <Subtitle size={'34px'} color={themeColors.black}>
@@ -244,8 +258,8 @@ const Landing: React.FC = () => {
             <LandingController width={width} height={height} />
             <LandingMouse />
           </LandingIconContainer>
-        </>
-      )}
+        </LandingContainer>
+      }
     </Container>
   );
 };
