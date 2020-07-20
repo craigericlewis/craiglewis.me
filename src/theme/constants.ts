@@ -14,6 +14,7 @@ export const themeConstants = {
     peach: '#e9c3b8',
     mediumBlue: '#006097',
     grey: '#707789',
+    forestGreen: '#34a853',
     darkGrey: '#555a66',
   },
   fontSize: {

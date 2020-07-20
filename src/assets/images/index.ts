@@ -9,6 +9,7 @@ export { default as Favicon16PNG } from './favicon/favicon-16x16.png';
 export { default as FaviconICO } from './favicon/favicon.ico';
 export { default as PostmatesSVG } from './work/postmates.inline.svg';
 export { default as VidyardSVG } from './work/vidyard.inline.svg';
+export { default as GoogleSVG } from './work/google.inline.svg';
 export { default as KeyboardSVG } from './landing/keyboard.inline.svg';
 export { default as ControllerSVG } from './landing/controller.inline.svg';
 export { default as PenSVG } from './landing/pen.inline.svg';

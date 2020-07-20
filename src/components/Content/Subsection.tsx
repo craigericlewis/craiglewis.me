@@ -36,7 +36,7 @@ const InnerContainer = styled.div`
 
 const Description = styled(Text)`
   width: 80%;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto 60px;
   transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 `;
@@ -111,7 +111,7 @@ const Subsection: React.FC<Props> = ({
         </Text>
         {children}
         <Description
-          size={'16px'}
+          size={'16.3px'}
           align={'center'}
           color={textColor}
           lineHeight={'1.9em'}
