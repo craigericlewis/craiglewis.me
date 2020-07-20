@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import Content from '../../Content';
 import Subsection from '../../Content/Subsection';
-import { PostmatesSVG, VidyardSVG } from '../../../assets/images';
+import { PostmatesSVG, VidyardSVG, GoogleSVG } from '../../../assets/images';
 
 interface SVGProps {
   isHovered: boolean;
@@ -27,11 +27,25 @@ const StyledVidyard = styled(VidyardSVG)<SVGProps>`
   transition-duration: 0.3s;
 `;
 
+const StyledGoogle = styled(GoogleSVG)<SVGProps>`
+  width: 150px;
+  height: 150px;
+  margin: 50px auto 50px auto;
+  display: block;
+  transform: ${({ isHovered }) =>
+    isHovered ? 'translate3D(0, 8px, 0)' : 'translateZ(0)'};
+  transition-duration: 0.3s;
+`;
+
 const postmatesClick = () => {
   window.open(
     'https://www.forbes.com/sites/warrenshoulberg/2019/12/12/old-navy-sails-into-deliveries-with-postmates/#37ab3e9276f9',
     '_blank'
   );
+};
+
+const googleClick = () => {
+  window.open('https://github.com/google/resultstoreui', '_blank');
 };
 
 const vidyardClick = () => {
@@ -46,9 +60,26 @@ const Work: React.FC = () => {
   const [vidyardHovered, setVidyardHovered] = useState<SVGProps['isHovered']>(
     false
   );
+  const [googleHovered, setGoogleHovered] = useState<SVGProps['isHovered']>(
+    false
+  );
 
   return (
-    <Content title={'Co-ops.'}>
+    <Content title={'Work.'}>
+      <Subsection
+        color={themeColors.peach}
+        title={'Google'}
+        description={
+          'I designed and implemented a web service to search, parse and visualize metrics associated with tests run on Google hardware'
+        }
+        popinEnabled={true}
+        setSvgHovered={setGoogleHovered}
+        onClick={googleClick}
+        textColor={'black'}
+        popinText={'View Project'}
+      >
+        <StyledGoogle isHovered={googleHovered} />
+      </Subsection>
       <Subsection
         color={themeColors.red}
         title={'Postmates'}
