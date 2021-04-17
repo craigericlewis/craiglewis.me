@@ -3,7 +3,7 @@ import React from 'react';
 type IconFunc = (fill: string, sideLength: number, url: string) => JSX.Element;
 
 const github: IconFunc = (fill, sideLength, url) => (
-  <a href={url} target="_blank">
+  <a href={url} target="_blank" rel="noreferrer">
     <svg viewBox="0 0 512 512" width={sideLength} height={sideLength}>
       <path
         fill={fill}
@@ -14,7 +14,7 @@ const github: IconFunc = (fill, sideLength, url) => (
 );
 
 const linkedin: IconFunc = (fill, sideLength, url) => (
-  <a href={url} target="_blank">
+  <a href={url} target="_blank" rel="noreferrer">
     <svg
       enableBackground="new 0 0 24 24"
       height={sideLength}
@@ -38,7 +38,7 @@ const linkedin: IconFunc = (fill, sideLength, url) => (
 );
 
 const resume: IconFunc = (fill, sideLength, url) => (
-  <a href={url} target="_blank">
+  <a href={url} target="_blank" rel="noreferrer">
     <svg
       enableBackground="new 0 0 512 512"
       height={sideLength}
@@ -72,7 +72,7 @@ const resume: IconFunc = (fill, sideLength, url) => (
 );
 
 const email: IconFunc = (fill, sideLength, url) => (
-  <a href={url} target="_blank">
+  <a href={url} target="_blank" rel="noreferrer">
     <svg
       enableBackground="new 0 0 512.005 512.005"
       height={sideLength}
