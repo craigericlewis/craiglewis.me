@@ -15,6 +15,7 @@ module.exports = {
     { resolve: `gatsby-plugin-sharp` },
     { resolve: `gatsby-plugin-transition-link` },
     { resolve: `gatsby-plugin-remove-trailing-slashes` },
+    { resolve: `gatsby-plugin-preload-fonts`},
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -50,7 +51,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
         fonts: [
           {
