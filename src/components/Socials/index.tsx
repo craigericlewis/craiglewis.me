@@ -20,21 +20,11 @@ const Container = styled.div<ContainerProps>`
   margin: ${({ margin }) => margin};
 `;
 
-const linkedinClick = () => {
-  window.open('https://www.linkedin.com/in/craig-eric-lewis/', '_blank');
-};
+const linkedinURL = 'https://www.linkedin.com/in/craig-eric-lewis/';
 
-const githubClick = () => {
-  window.open('https://github.com/craigericlewis', '_blank');
-};
+const githubURL = 'https://github.com/craigericlewis';
 
-const emailClick = () => {
-  window.location.href = 'mailto:celewis@uwaterloo.ca';
-};
-
-const openResume = () => {
-  window.open(Resume);
-};
+const emailURL = 'mailto:celewis@uwaterloo.ca';
 
 const Socials: React.FC<Props> = ({
   margin,
@@ -46,7 +36,7 @@ const Socials: React.FC<Props> = ({
   return (
     <Container margin={margin}>
       <IconHolder
-        onClick={linkedinClick}
+        url={linkedinURL}
         fill={fill}
         hoverFill={hoverFill}
         sideLength={size}
@@ -54,7 +44,7 @@ const Socials: React.FC<Props> = ({
         iconPadding={iconPadding}
       />
       <IconHolder
-        onClick={githubClick}
+        url={githubURL}
         fill={fill}
         hoverFill={hoverFill}
         sideLength={size}
@@ -62,7 +52,7 @@ const Socials: React.FC<Props> = ({
         iconPadding={iconPadding}
       />
       <IconHolder
-        onClick={emailClick}
+        url={emailURL}
         fill={fill}
         hoverFill={hoverFill}
         sideLength={size}
@@ -70,7 +60,7 @@ const Socials: React.FC<Props> = ({
         iconPadding={iconPadding}
       />
       <IconHolder
-        onClick={openResume}
+        url={Resume}
         fill={fill}
         hoverFill={hoverFill}
         sideLength={size}

@@ -50,11 +50,11 @@ const Landing: React.FC = () => {
 
   return (
     <Container ref={ref}>
-      {loading ? (
+      {/* {loading ? (
         <TitleContainer>
           <Loader color={themeColors.black} />
         </TitleContainer>
-      ) : (
+      ) : ( */}
         <LandingContainer>
           <TitleContainer>
             <Name as={'h1'}>{'Craig Lewis'}</Name>
@@ -87,7 +87,7 @@ const Landing: React.FC = () => {
             <LandingMouse />
           </LandingIconContainer>
         </LandingContainer>
-      )}
+      {/* )} */}
     </Container>
   );
 };

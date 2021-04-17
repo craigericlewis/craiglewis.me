@@ -15,7 +15,7 @@ interface Props {
   hoverFill: string;
   sideLength: number;
   name: string;
-  onClick: () => void;
+  url: string;
   iconPadding: string;
 }
 
@@ -28,18 +28,17 @@ const IconHolder: React.FC<Props> = ({
   hoverFill,
   sideLength,
   name,
-  onClick,
+  url,
   iconPadding,
 }) => {
   const [isHovered, setIsHovered] = React.useState<State['isHovered']>(false);
   const color = isHovered ? hoverFill : fill;
-  const Icon = iconDict(color, sideLength, name);
+  const Icon = iconDict(color, sideLength, name, url);
 
   return (
     <IconContainer
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => onClick()}
       iconPadding={iconPadding}
     >
       {Icon}
