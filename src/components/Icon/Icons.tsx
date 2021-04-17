@@ -3,7 +3,7 @@ import React from 'react';
 type IconFunc = (fill: string, sideLength: number, url: string) => JSX.Element;
 
 const github: IconFunc = (fill, sideLength, url) => (
-  <a href={url} target="_blank">
+  <a href={url} target="_blank" rel="noreferrer">
     <svg viewBox="0 0 512 512" width={sideLength} height={sideLength}>
       <path
         fill={fill}
