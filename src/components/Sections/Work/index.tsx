@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import Content from '../../Content';
 import Subsection from '../../Content/Subsection';
-import { PostmatesSVG, VidyardSVG, GoogleSVG } from '../../../assets/images';
+import { PostmatesSVG, VidyardSVG, GoogleSVG, FacebookSVG } from '../../../assets/images';
 
 interface SVGProps {
   isHovered: boolean;
@@ -28,6 +28,16 @@ const StyledVidyard = styled(VidyardSVG)<SVGProps>`
 `;
 
 const StyledGoogle = styled(GoogleSVG)<SVGProps>`
+  width: 150px;
+  height: 150px;
+  margin: 50px auto 50px auto;
+  display: block;
+  transform: ${({ isHovered }) =>
+    isHovered ? 'translate3D(0, 8px, 0)' : 'translateZ(0)'};
+  transition-duration: 0.3s;
+`;
+
+const StyledFacebook = styled(FacebookSVG)<SVGProps>`
   width: 150px;
   height: 150px;
   margin: 50px auto 50px auto;
@@ -63,9 +73,26 @@ const Work: React.FC = () => {
   const [googleHovered, setGoogleHovered] = useState<SVGProps['isHovered']>(
     false
   );
+  const [facebookHovered, setFacebookHovered] = useState<SVGProps['isHovered']>(
+    false
+  );
 
   return (
     <Content title={'Work.'}>
+      <Subsection
+        color={themeColors.grayishBlue}
+        title={'Facebook'}
+        description={
+          'As a member of Instagram\'s Business Integrity team, I expanded systems to flag bad actors and improved transparency around monetization eligibility '
+        }
+        popinEnabled={true}
+        setSvgHovered={setFacebookHovered}
+        onClick={googleClick}
+        textColor={'black'}
+        popinText={'View Project'}
+      >
+        <StyledFacebook isHovered={facebookHovered} />
+      </Subsection>
       <Subsection
         color={themeColors.peach}
         title={'Google'}
