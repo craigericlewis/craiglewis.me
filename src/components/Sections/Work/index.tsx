@@ -85,9 +85,8 @@ const Work: React.FC = () => {
         description={
           'As a member of Instagram\'s Business Integrity team, I expanded systems to flag bad actors and improved transparency around monetization eligibility '
         }
-        popinEnabled={true}
+        popinEnabled={false}
         setSvgHovered={setFacebookHovered}
-        onClick={googleClick}
         textColor={'black'}
         popinText={'View Project'}
       >
