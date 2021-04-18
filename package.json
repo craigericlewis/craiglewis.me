@@ -83,5 +83,8 @@
   },
   "bugs": {
     "url": "https://github.com/craigericlewis/craiglewis.me/issues"
+  },
+  "engines": {
+    "node": "*"
   }
 }
