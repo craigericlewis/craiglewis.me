@@ -60,10 +60,10 @@ export const TitleContainer = styled.div`
 export const LandingNotebook = styled(NotebookSVG)<SVGProps>`
   transform: rotate(-45deg);
   position: absolute;
-  margin-left: ${({ width }) => width - 600}px;
-  top: -380px;
-  width: 900px;
-  height: 1025px;
+  margin-left: ${({ width }) => width - 525}px;
+  top: -350px;
+  width: 800px;
+  height: 900px;
 
   ${({ theme }) => theme.mediaQueries.medium`
     width: 600px;
@@ -82,8 +82,8 @@ export const LandingNotebook = styled(NotebookSVG)<SVGProps>`
 
 export const LandingKeyboard = styled(KeyboardSVG)<SVGProps>`
   position: absolute;
-  width: 1250px;
-  height: 1250px;
+  width: 1100px;
+  height: 1100px;
   transform: rotate(45deg);
   margin-left: -600px;
   margin-top: ${({ height }) => height - 850}px;
@@ -105,11 +105,11 @@ export const LandingKeyboard = styled(KeyboardSVG)<SVGProps>`
 
 export const LandingController = styled(ControllerSVG)<SVGProps>`
   position: absolute;
-  width: 700px;
-  height: 700px;
+  width: 600px;
+  height: 600px;
   transform: rotate(-45deg);
-  margin-top: ${({ height }) => height - 500}px;
-  margin-left: ${({ width }) => width - 500}px;
+  margin-top: ${({ height }) => height - 450}px;
+  margin-left: ${({ width }) => width - 450}px;
 
   ${({ theme, width }) => theme.mediaQueries.medium`
     width: 500px;
@@ -128,11 +128,11 @@ export const LandingController = styled(ControllerSVG)<SVGProps>`
 
 export const LandingMouse = styled(MouseSVG)<SVGProps>`
   position: absolute;
-  width: 700px;
-  height: 700px;
+  width: 600px;
+  height: 600px;
   transform: rotate(135deg);
-  margin-top: -200px;
-  margin-left: -180px;
+  margin-top: -185px;
+  margin-left: -160px;
 
   ${({ theme }) => theme.mediaQueries.medium`
     width: 400px;
