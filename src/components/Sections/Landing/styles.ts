@@ -111,11 +111,12 @@ export const LandingController = styled(ControllerSVG)<SVGProps>`
   margin-top: ${({ height }) => height - 450}px;
   margin-left: ${({ width }) => width - 450}px;
 
-  ${({ theme, width }) => theme.mediaQueries.medium`
+  ${({ theme, width, height }) => theme.mediaQueries.medium`
     width: 500px;
     height: 500px;
     margin-left: ${({ width }) => width - 400}px;
     top: 94px;
+    margin-top: ${({ height }) => height - 500}px;
   `}
 
   ${({ theme, width }) => theme.mediaQueries.xlMobile`
@@ -131,14 +132,14 @@ export const LandingMouse = styled(MouseSVG)<SVGProps>`
   width: 600px;
   height: 600px;
   transform: rotate(135deg);
-  margin-top: -185px;
+  margin-top: -200px;
   margin-left: -160px;
 
   ${({ theme }) => theme.mediaQueries.medium`
     width: 400px;
     height: 425px;
     margin-left: -100px;
-    top: 100px;
+    top: 95px;
   `}
 
   ${({ theme }) => theme.mediaQueries.xlMobile`

@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import Content from '../../Content';
 import Subsection from '../../Content/Subsection';
-import { PostmatesSVG, VidyardSVG, GoogleSVG, FacebookSVG } from '../../../assets/images';
+import { PostmatesSVG, VidyardSVG, GoogleSVG, FacebookSVG, StratusSVG } from '../../../assets/images';
 
 interface SVGProps {
   isHovered: boolean;
@@ -47,6 +47,16 @@ const StyledFacebook = styled(FacebookSVG)<SVGProps>`
   transition-duration: 0.3s;
 `;
 
+const StyledStratus = styled(StratusSVG)<SVGProps>`
+  width: 200px;
+  height: 200px;
+  margin: 50px auto 50px auto;
+  display: block;
+  transform: ${({ isHovered }) =>
+    isHovered ? 'translate3D(0, 8px, 0)' : 'translateZ(0)'};
+  transition-duration: 0.3s;
+`
+
 const postmatesClick = () => {
   window.open(
     'https://www.forbes.com/sites/warrenshoulberg/2019/12/12/old-navy-sails-into-deliveries-with-postmates/#37ab3e9276f9',
@@ -62,6 +72,10 @@ const vidyardClick = () => {
   window.open('https://www.vidyard.com/', '__blank');
 };
 
+const stratusClick = () => {
+  window.open('https://www.stratus360.com/', '__blank');
+}
+
 const Work: React.FC = () => {
   const { color: themeColors } = useContext(ThemeContext);
   const [postmatesHovered, setPostmatesHovered] = useState<
@@ -74,6 +88,9 @@ const Work: React.FC = () => {
     false
   );
   const [facebookHovered, setFacebookHovered] = useState<SVGProps['isHovered']>(
+    false
+  );
+  const [stratusHovered, setStratusHovered] = useState<SVGProps['isHovered']>(
     false
   );
 
@@ -133,6 +150,20 @@ const Work: React.FC = () => {
         popinText={'View Project'}
       >
         <StyledVidyard isHovered={vidyardHovered} />
+      </Subsection>
+      <Subsection
+        color={themeColors.midnightBlue}
+        title={'Stratus360'}
+        description={
+          "As a consulting engineer at Stratus360, I worked with Blackberry to build a self-service portal to provide support for their SAAS solutions to partner organizations"
+        }
+        popinEnabled={true}
+        setSvgHovered={setStratusHovered}
+        onClick={stratusClick}
+        textColor={'black'}
+        popinText={'View Project'}
+      >
+        <StyledStratus isHovered={stratusHovered} />
       </Subsection>
     </Content>
   );
