@@ -18,6 +18,7 @@ export const themeConstants = {
     darkGrey: '#555a66',
     cream: '#fdf0ec',
     grayishBlue: '#DFE3EE',
+    midnightBlue: '#98BEC8',
   },
   fontSize: {
     [Size.XSMALL]: 16,
