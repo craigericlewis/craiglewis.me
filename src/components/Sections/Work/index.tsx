@@ -86,6 +86,10 @@ const stratusClick = () => {
   window.open('https://www.stratus360.com/', '__blank');
 }
 
+const riotClick = () => {
+  window.open('https://www.leagueoflegends.com/en-us/news/game-updates/patch-11-16-notes/#patch-ranked-updates', '__blank');
+}
+
 const Work: React.FC = () => {
   const { color: themeColors } = useContext(ThemeContext);
   const [riotHovered, setRiotHovered] = useState<SVGProps['isHovered']>(
@@ -115,10 +119,11 @@ const Work: React.FC = () => {
         description={
           'Being a part of the behavioral systems team I architected and implemented a social leaderboard where players could view their competitive ranking amongst their friends'
         }
-        popinEnabled={false}
+        popinEnabled={true}
+        onClick={riotClick}
         setSvgHovered={setRiotHovered}
         textColor={'white'}
-        popinText={'View Project'}
+        popinText={'Read More'}
       >
         <StyledRiot isHovered={riotHovered} />
       </Subsection>
