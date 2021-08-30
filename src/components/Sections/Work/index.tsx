@@ -110,9 +110,6 @@ const Work: React.FC = () => {
   const [stratusHovered, setStratusHovered] = useState<SVGProps['isHovered']>(
     false
   );
-  const [stratusHovered, setStratusHovered] = useState<SVGProps['isHovered']>(
-    false
-  );
 
   return (
     <Content title={'Work.'}>
