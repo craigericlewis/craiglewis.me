@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import Content from '../../Content';
 import Subsection from '../../Content/Subsection';
-import { PostmatesSVG, VidyardSVG, GoogleSVG, FacebookSVG, StratusSVG } from '../../../assets/images';
+import { PostmatesSVG, VidyardSVG, GoogleSVG, FacebookSVG, StratusSVG, RiotSVG } from '../../../assets/images';
 
 interface SVGProps {
   isHovered: boolean;
@@ -47,6 +47,16 @@ const StyledFacebook = styled(FacebookSVG)<SVGProps>`
   transition-duration: 0.3s;
 `;
 
+const StyledRiot = styled(RiotSVG)<SVGProps>`
+  width: 150px;
+  height: 150px;
+  margin: 50px auto 50px auto;
+  display: block;
+  transform: ${({ isHovered }) =>
+    isHovered ? 'translate3D(0, 8px, 0)' : 'translateZ(0)'};
+  transition-duration: 0.3s;
+`;
+
 const StyledStratus = styled(StratusSVG)<SVGProps>`
   width: 200px;
   height: 200px;
@@ -76,18 +86,28 @@ const stratusClick = () => {
   window.open('https://www.stratus360.com/', '__blank');
 }
 
+const riotClick = () => {
+  window.open('https://www.leagueoflegends.com/en-us/news/game-updates/patch-11-16-notes/#patch-ranked-updates', '__blank');
+}
+
 const Work: React.FC = () => {
   const { color: themeColors } = useContext(ThemeContext);
+  const [riotHovered, setRiotHovered] = useState<SVGProps['isHovered']>(
+    false
+  );
+  const [facebookHovered, setFacebookHovered] = useState<SVGProps['isHovered']>(
+    false
+  );
+  const [googleHovered, setGoogleHovered] = useState<SVGProps['isHovered']>(
+    false
+  );
   const [postmatesHovered, setPostmatesHovered] = useState<
     SVGProps['isHovered']
   >(false);
   const [vidyardHovered, setVidyardHovered] = useState<SVGProps['isHovered']>(
     false
   );
-  const [googleHovered, setGoogleHovered] = useState<SVGProps['isHovered']>(
-    false
-  );
-  const [facebookHovered, setFacebookHovered] = useState<SVGProps['isHovered']>(
+  const [stratusHovered, setStratusHovered] = useState<SVGProps['isHovered']>(
     false
   );
   const [stratusHovered, setStratusHovered] = useState<SVGProps['isHovered']>(
@@ -97,10 +117,24 @@ const Work: React.FC = () => {
   return (
     <Content title={'Work.'}>
       <Subsection
+        color={themeColors.red}
+        title={'Riot Games'}
+        description={
+          'Being a part of the behavioral systems team I architected and implemented a social leaderboard where players could view their competitive ranking amongst their friends'
+        }
+        popinEnabled={true}
+        onClick={riotClick}
+        setSvgHovered={setRiotHovered}
+        textColor={'white'}
+        popinText={'Read More'}
+      >
+        <StyledRiot isHovered={riotHovered} />
+      </Subsection>
+      <Subsection
         color={themeColors.grayishBlue}
         title={'Facebook'}
         description={
-          'As a member of Instagram\'s Business Integrity team, I expanded systems to flag bad actors and improved transparency around monetization eligibility '
+          'As a member of Instagram\'s Business Integrity team, I expanded systems to flag bad actors and improved transparency around monetization eligibility'
         }
         popinEnabled={false}
         setSvgHovered={setFacebookHovered}
@@ -124,7 +158,7 @@ const Work: React.FC = () => {
         <StyledGoogle isHovered={googleHovered} />
       </Subsection>
       <Subsection
-        color={themeColors.red}
+        color={themeColors.yellow}
         title={'Postmates'}
         description={
           'As a Software Engineer Intern at Postmates I worked with third parties like Old Navy to enable retail delivery fulfilled through Postmates fleet'
@@ -132,7 +166,7 @@ const Work: React.FC = () => {
         popinEnabled={true}
         setSvgHovered={setPostmatesHovered}
         onClick={postmatesClick}
-        textColor={'white'}
+        textColor={'black'}
         popinText={'Read More'}
       >
         <StyledPostmates isHovered={postmatesHovered} />

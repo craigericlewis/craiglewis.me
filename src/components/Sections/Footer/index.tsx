@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
             lineHeight={'1.9em'}
           >
             {"If I'm not feeding in League of Legends "}
-            {'or engrossed in an obsure indie game, '}
+            {'or engrossed in an obscure indie game, '}
             {'you can probably find me tinkering around '}
             {'in some random code base.'}
           </Description>
