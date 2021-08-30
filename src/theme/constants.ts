@@ -10,7 +10,7 @@ export const themeConstants = {
     lighterBlue: '#d3e1e1',
     darkBlue: '#1f4954',
     green: '#3bab87',
-    red: '#c1605c',
+    red: '#B14240',
     peach: '#e9c3b8',
     mediumBlue: '#006097',
     grey: '#707789',
@@ -19,6 +19,7 @@ export const themeConstants = {
     cream: '#fdf0ec',
     grayishBlue: '#DFE3EE',
     midnightBlue: '#98BEC8',
+    yellow: '#FFEE99',
   },
   fontSize: {
     [Size.XSMALL]: 16,
