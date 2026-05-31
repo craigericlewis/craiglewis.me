@@ -50,18 +50,6 @@ module.exports = {
         head: false,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-fonts-v2`,
-      options: {
-        fonts: [
-          {
-            family: `Roboto`,
-            variants: [`400`, `600`, `700`],
-          },
-          { family: `Roboto` },
-        ],
-      },
-    },
     { resolve: `gatsby-plugin-sitemap` },
   ],
 };
