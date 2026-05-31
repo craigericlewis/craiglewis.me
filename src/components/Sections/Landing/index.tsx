@@ -6,7 +6,6 @@ import React, {
   useRef,
 } from 'react';
 import { ThemeContext } from 'styled-components';
-import Loader from 'react-spinners/ScaleLoader';
 import {
   State,
   Container,
@@ -40,7 +39,6 @@ const useIsomorphicLayoutEffect =
 
 const Landing: React.FC = () => {
   const { color: themeColors } = useContext(ThemeContext);
-  const [loading, setLoading] = useState<State['loading']>(true);
   const ref = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState<State['width']>(getWindowWidth(ref));
   const [height, setHeight] = useState<State['height']>(getWindowHeight(ref));
@@ -51,7 +49,6 @@ const Landing: React.FC = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 500);
     window.addEventListener('resize', setDimensions);
     return () => window.removeEventListener('resize', setDimensions);
   }, []);
@@ -62,44 +59,38 @@ const Landing: React.FC = () => {
 
   return (
     <Container ref={ref}>
-      {/* {loading ? (
+      <LandingContainer>
         <TitleContainer>
-          <Loader color={themeColors.black} />
+          <Name as={'h1'}>{'Craig Lewis'}</Name>
+          <Subtitle size={'34px'} color={themeColors.black}>
+            {'Yet another software engineer'}
+          </Subtitle>
+          {deviceBreakpoints.xlMobile >= width ? (
+            <Socials
+              margin={'20px auto 0px auto'}
+              iconPadding={'0px 4px 0px 4px'}
+              size={30}
+              fill={themeColors.black}
+              hoverFill={themeColors.mediumBlue}
+            />
+          ) : (
+            <Socials
+              margin={'20px auto 0px auto'}
+              iconPadding={'0px 9px 0px 9px'}
+              size={45}
+              fill={themeColors.black}
+              hoverFill={themeColors.mediumBlue}
+            />
+          )}
+          <LandingPen />
         </TitleContainer>
-      ) : ( */}
-        <LandingContainer>
-          <TitleContainer>
-            <Name as={'h1'}>{'Craig Lewis'}</Name>
-            <Subtitle size={'34px'} color={themeColors.black}>
-              {'Yet another software engineer'}
-            </Subtitle>
-            {deviceBreakpoints.xlMobile >= width ? (
-              <Socials
-                margin={'20px auto 0px auto'}
-                iconPadding={'0px 4px 0px 4px'}
-                size={30}
-                fill={themeColors.black}
-                hoverFill={themeColors.mediumBlue}
-              />
-            ) : (
-              <Socials
-                margin={'20px auto 0px auto'}
-                iconPadding={'0px 9px 0px 9px'}
-                size={45}
-                fill={themeColors.black}
-                hoverFill={themeColors.mediumBlue}
-              />
-            )}
-            <LandingPen />
-          </TitleContainer>
-          <LandingIconContainer>
-            <LandingNotebook width={width} />
-            <LandingKeyboard height={height} />
-            <LandingController width={width} height={height} />
-            <LandingMouse />
-          </LandingIconContainer>
-        </LandingContainer>
-      {/* )} */}
+        <LandingIconContainer>
+          <LandingNotebook width={width} />
+          <LandingKeyboard height={height} />
+          <LandingController width={width} height={height} />
+          <LandingMouse />
+        </LandingIconContainer>
+      </LandingContainer>
     </Container>
   );
 };

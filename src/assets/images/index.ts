@@ -12,7 +12,7 @@ export { default as VidyardSVG } from './work/vidyard.inline.svg';
 export { default as GoogleSVG } from './work/google.inline.svg';
 export { default as StratusSVG } from './work/stratus.inline.svg';
 export { default as FacebookSVG } from './work/facebook.inline.svg';
-export { default as RiotSVG} from './work/riot.inline.svg';
+export { default as RiotSVG } from './work/riot.inline.svg';
 export { default as KeyboardSVG } from './landing/keyboard.inline.svg';
 export { default as ControllerSVG } from './landing/controller.inline.svg';
 export { default as PenSVG } from './landing/pen.inline.svg';

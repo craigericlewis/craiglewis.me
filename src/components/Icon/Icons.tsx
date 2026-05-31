@@ -89,7 +89,12 @@ const email: IconFunc = (fill, sideLength, url) => (
   </a>
 );
 
-const iconDict = (fill: string, sideLength: number, name: string, url: string) => {
+const iconDict = (
+  fill: string,
+  sideLength: number,
+  name: string,
+  url: string
+) => {
   switch (name) {
     case 'github':
       return github(fill, sideLength, url);

@@ -2,7 +2,14 @@ import React, { useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import Content from '../../Content';
 import Subsection from '../../Content/Subsection';
-import { PostmatesSVG, VidyardSVG, GoogleSVG, FacebookSVG, StratusSVG, RiotSVG } from '../../../assets/images';
+import {
+  PostmatesSVG,
+  VidyardSVG,
+  GoogleSVG,
+  FacebookSVG,
+  StratusSVG,
+  RiotSVG,
+} from '../../../assets/images';
 
 interface SVGProps {
   isHovered: boolean;
@@ -65,7 +72,7 @@ const StyledStratus = styled(StratusSVG)<SVGProps>`
   transform: ${({ isHovered }) =>
     isHovered ? 'translate3D(0, 8px, 0)' : 'translateZ(0)'};
   transition-duration: 0.3s;
-`
+`;
 
 const postmatesClick = () => {
   window.open(
@@ -84,32 +91,28 @@ const vidyardClick = () => {
 
 const stratusClick = () => {
   window.open('https://www.stratus360.com/', '__blank');
-}
+};
 
 const riotClick = () => {
-  window.open('https://www.leagueoflegends.com/en-us/news/game-updates/patch-11-16-notes/#patch-ranked-updates', '__blank');
-}
+  window.open(
+    'https://www.leagueoflegends.com/en-us/news/game-updates/patch-11-16-notes/#patch-ranked-updates',
+    '__blank'
+  );
+};
 
 const Work: React.FC = () => {
   const { color: themeColors } = useContext(ThemeContext);
-  const [riotHovered, setRiotHovered] = useState<SVGProps['isHovered']>(
-    false
-  );
-  const [facebookHovered, setFacebookHovered] = useState<SVGProps['isHovered']>(
-    false
-  );
-  const [googleHovered, setGoogleHovered] = useState<SVGProps['isHovered']>(
-    false
-  );
-  const [postmatesHovered, setPostmatesHovered] = useState<
-    SVGProps['isHovered']
-  >(false);
-  const [vidyardHovered, setVidyardHovered] = useState<SVGProps['isHovered']>(
-    false
-  );
-  const [stratusHovered, setStratusHovered] = useState<SVGProps['isHovered']>(
-    false
-  );
+  const [riotHovered, setRiotHovered] = useState<SVGProps['isHovered']>(false);
+  const [facebookHovered, setFacebookHovered] =
+    useState<SVGProps['isHovered']>(false);
+  const [googleHovered, setGoogleHovered] =
+    useState<SVGProps['isHovered']>(false);
+  const [postmatesHovered, setPostmatesHovered] =
+    useState<SVGProps['isHovered']>(false);
+  const [vidyardHovered, setVidyardHovered] =
+    useState<SVGProps['isHovered']>(false);
+  const [stratusHovered, setStratusHovered] =
+    useState<SVGProps['isHovered']>(false);
 
   return (
     <Content title={'Work.'}>
@@ -131,7 +134,7 @@ const Work: React.FC = () => {
         color={themeColors.grayishBlue}
         title={'Facebook'}
         description={
-          'As a member of Instagram\'s Business Integrity team, I expanded systems to flag bad actors and improved transparency around monetization eligibility'
+          "As a member of Instagram's Business Integrity team, I expanded systems to flag bad actors and improved transparency around monetization eligibility"
         }
         popinEnabled={false}
         setSvgHovered={setFacebookHovered}
@@ -186,7 +189,7 @@ const Work: React.FC = () => {
         color={themeColors.midnightBlue}
         title={'Stratus360'}
         description={
-          "As a consulting engineer at Stratus360, I worked with Blackberry to build a self-service portal to provide support for their SAAS solutions to partner organizations"
+          'As a consulting engineer at Stratus360, I worked with Blackberry to build a self-service portal to provide support for their SAAS solutions to partner organizations'
         }
         popinEnabled={true}
         setSvgHovered={setStratusHovered}

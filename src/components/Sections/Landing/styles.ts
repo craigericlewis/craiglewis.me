@@ -111,7 +111,7 @@ export const LandingController = styled(ControllerSVG)<SVGProps>`
   margin-top: ${({ height }) => height - 450}px;
   margin-left: ${({ width }) => width - 450}px;
 
-  ${({ theme, width, height }) => theme.mediaQueries.medium`
+  ${({ theme }) => theme.mediaQueries.medium`
     width: 500px;
     height: 500px;
     margin-left: ${({ width }) => width - 400}px;
@@ -119,7 +119,7 @@ export const LandingController = styled(ControllerSVG)<SVGProps>`
     margin-top: ${({ height }) => height - 500}px;
   `}
 
-  ${({ theme, width }) => theme.mediaQueries.xlMobile`
+  ${({ theme }) => theme.mediaQueries.xlMobile`
     width: 200px;
     height: 200px;
     margin-left: ${({ width }) => width - 150}px;
