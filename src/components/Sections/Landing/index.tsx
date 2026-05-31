@@ -1,4 +1,10 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+} from 'react';
 import { ThemeContext } from 'styled-components';
 import Loader from 'react-spinners/ScaleLoader';
 import {
@@ -26,6 +32,12 @@ const getWindowHeight = (ref: React.RefObject<HTMLDivElement>) => {
   return ref.current ? ref.current.offsetHeight : 1080;
 };
 
+// useLayoutEffect runs synchronously before the browser paints, so the SVG
+// positions are corrected before they become visible. Fall back to useEffect
+// during SSR where useLayoutEffect would emit a warning.
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
 const Landing: React.FC = () => {
   const { color: themeColors } = useContext(ThemeContext);
   const [loading, setLoading] = useState<State['loading']>(true);
@@ -44,7 +56,7 @@ const Landing: React.FC = () => {
     return () => window.removeEventListener('resize', setDimensions);
   }, []);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     setDimensions();
   }, [ref.current]);
 
